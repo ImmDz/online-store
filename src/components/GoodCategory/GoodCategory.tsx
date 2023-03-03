@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { PopularCategory } from 'types/general';
 import { ProductCard } from 'components/ProductCard/ProductCard';
+import css from './goodCategory.module.css';
 
 interface GoodCategoryProps {
     className: string;
@@ -9,10 +10,10 @@ interface GoodCategoryProps {
 
 export const GoodCategory: FC<GoodCategoryProps> = ({ popular_category }) => {
     return (
-        <section className='good_category' style={{height: "650px"}}>
-            <h2 style={{backgroundColor: "green", textAlign: "center"}}>{`${popular_category.category.label}. Популярные товары`}</h2>
-            <ul style={{display: "flex", flexWrap: "wrap", gap: "100px 10px", listStyle: "none", textAlign: "center", padding: "0"}}>{popular_category.items.map((item) =>
-                <li key={Math.floor(Math.random() * 5000)}>
+        <section>
+            <h2 className={css.goodCategory__title}>{`${popular_category.category.label}. Популярные товары`}</h2>
+            <ul className={css.goodCategory__list}>{popular_category.items.map((item) =>
+                <li key={item.id}>
                     <ProductCard good={item}/>
                 </li>
             )}

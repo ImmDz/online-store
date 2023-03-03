@@ -5,7 +5,7 @@ import { Layout, Menu, Image } from 'antd';
 import { GoodCategory } from '../components/GoodCategory/GoodCategory';
 import type { PopularCategory } from 'types/general';
 import { getCategories, getPopularCategories, categoryActions, goodActions, popularActions } from '../store/index';
-import css from "./styles.module.css";
+import css from "./pages.module.css";
 
 const { Header, Sider, Footer, Content } = Layout;
 
@@ -24,21 +24,21 @@ export const MainPage: FC = () => {
     return (
         <>
             <Layout className={css["wrapper"]}>
-                <Header className={css.custom_header} style={{ color: "#fff" }}>Header</Header>
-                <Layout className={css["content"]} style={{ alignItems: 'flex-start', flexShrink: '1', maxWidth: "1520px", margin: "0 auto", backgroundColor: "white" }}>
+                <Header className={css.custom_header}>Header</Header>
+                <Layout className={css["content"]}>
                     <Sider theme={"dark"}>
                         <Menu>
                             {categories.map((category) => <Menu.Item key={category.id}>{category.label}</Menu.Item>)}
                         </Menu>
                     </Sider>
-                    <Content style={{ width: "100%" }}>
-                        <section className="banner" style={{ maxWidth: '100%', height: "488px" }} >
+                    <Content className={css.main}>
+                        <section className="banner" >
                             <Image preview={false} src="https://source.unsplash.com/featured/1320x488?store" />
                         </section>
-                        {popularCategories.map((item) => <GoodCategory className={css.category} popular_category={findPopularCategory(item.category.type)} />)}
+                        {popularCategories.map((item) => <GoodCategory key={item.category.id} className={css.category} popular_category={findPopularCategory(item.category.type)} />)}
                     </Content>
                 </Layout>
-                <Footer style={{ flexShrink: '0', backgroundColor: "#001529", color: "#fff" }}>Footer</Footer>
+                <Footer>Footer</Footer>
             </Layout>
         </>
     )

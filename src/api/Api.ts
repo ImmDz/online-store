@@ -1,19 +1,14 @@
-// export interface Good {
-//     categoryTypeId: string;
-//     description: string;
-//     img: string;
-//     label: string;
-//     price: string;
-// }
+import { Category, Good, PopularCategory } from "types/general";
+
 
 class Api {
-    getCategories() {
+    getCategories(): Promise<Category[]> {
         return fetch('/api/categories').then(res => res.json().then((data) => data.categories));
     };
-    getGoods() {
-        return fetch('/api/goods?categoryTypeIds=5').then(r => r.json()).then(data => data.items)      
+    getGoods(): Promise<Good[]> {
+        return fetch('/api/goods').then(r => r.json()).then(data => data.items)  
     };
-    getPopularCategories() {
+    getPopularCategories(): Promise<PopularCategory[]> {
         return fetch('/api/popular_categories').then(r => r.json());
     }
 }

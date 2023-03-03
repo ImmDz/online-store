@@ -4,6 +4,7 @@ export interface Good {
     img: string;
     label: string;
     price: string;
+    id: string;
 }
 
 export interface Category {
