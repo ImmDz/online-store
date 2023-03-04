@@ -1,0 +1,13 @@
+.goodCategory__title {
+    background-color: rgb(4, 128, 101);
+    text-align: center;
+    color: #fff;
+}
+
+.goodCategory__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    text-align: center;
+}

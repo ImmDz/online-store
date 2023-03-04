@@ -1,0 +1,25 @@
+.wrapper {
+    min-height: 100vh;
+}
+
+:global(.ant-layout-header) {
+    color: #fff !important;
+}
+
+:global(.ant-layout-footer) {
+    background-color: #001529!important;
+    color: #fff!important;
+    flex-shrink: 0!important;
+}
+
+.content {
+    align-items: flex-start;
+    flex-shrink: 1;
+    max-width: 1520px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.main {
+    width: 100%!important;
+}
