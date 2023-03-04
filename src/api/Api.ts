@@ -1,16 +1,17 @@
 import { Category, Good, PopularCategory } from "types/general";
+import  axios  from "axios";
 
 
 class Api {
     getCategories(): Promise<Category[]> {
-        return fetch('/api/categories').then(res => res.json().then((data) => data.categories));
+        return axios.get('/api/categories').then(res => res.data).then(({categories}) => categories);
     };
-    getGoods(): Promise<Good[]> {
-        return fetch('/api/goods').then(r => r.json()).then(data => data.items)  
+    getGoods(): Promise<{items: Good[], total: number}> {
+        return axios.get('/api/goods').then(res => res.data);
     };
     getPopularCategories(): Promise<PopularCategory[]> {
-        return fetch('/api/popular_categories').then(r => r.json());
-    }
+        return axios.get('/api/popular_categories').then(res => res.data);
+    };
 }
 
 export const api = new Api();

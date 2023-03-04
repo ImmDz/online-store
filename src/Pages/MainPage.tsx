@@ -12,6 +12,7 @@ const { Header, Sider, Footer, Content } = Layout;
 export const MainPage: FC = () => {
     const categories = useSelector(getCategories);
     const popularCategories = useSelector(getPopularCategories);
+
     const dispatch = useAppDispatch();
 
     useEffect(() => {
