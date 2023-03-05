@@ -9,6 +9,6 @@ interface ProductCardProps {
 }
 
 export const ProductCard: FC<ProductCardProps> = ({ good }) =>
-    <Card className={css.productCard} /*cover={<img src="https://source.unsplash.com/featured/150x50?product" height={100}></img>}*/>
+    <Card  className={css.productCard} /*cover={<img src="https://source.unsplash.com/featured/150x50?product" height={100}></img>}*/>
         <Meta title={good.label} description={`${good.price}$`}></Meta>
     </Card>
